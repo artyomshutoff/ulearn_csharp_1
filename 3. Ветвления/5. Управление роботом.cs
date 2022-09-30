@@ -1,16 +1,7 @@
 static bool
-ShouldFire(bool enemyInFront, string enemyName, int robotHealth)
+ShouldFire2(bool enemyInFront, string enemyName, int robotHealth)
 {
-    bool shouldFire = true;
-    if (enemyInFront == true) {
-        if (enemyName == "boss") {
-            if (robotHealth < 50)
-                shouldFire = false;
-            if (robotHealth > 100)
-                shouldFire = true;
-        }
-    } else {
-        return false;
-    }
-    return shouldFire;
+    return ((enemyInFront == true) && (enemyName == "boss") &&
+            (robotHealth >= 50)) ||
+           ((enemyInFront == true) && (enemyName != "boss"));
 }
